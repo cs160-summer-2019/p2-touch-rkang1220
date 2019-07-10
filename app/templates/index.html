@@ -85,6 +85,56 @@
 	</div>
 	<script>
 	  // your solution here
+   
+      var rotate = document.getElementById('rotate-box');
+      var mcRot = new Hammer.Manager(rotate);
+      var rotateMe = new Hammer.Rotate();
+      mcRot.add(rotateMe);
+      //mcRot.get('rotate').set({ enable: true });
+      mcRot.on('rotate', function(ev) {
+        $("#rotate-box").css({"backgroundColor":"green"});
+      });
+    
+      var pinch = document.getElementById('pinch-box');
+      var mcPinch = new Hammer.Manager(pinch);
+      var pinchMe = new Hammer.Pinch();
+      mcPinch.add(pinchMe);
+      mcPinch.on('pinch', function(ev) {
+		    $("#pinch-box").css({"backgroundColor":"green"});
+		  });
+    
+      var press = document.getElementById('press-box');
+      var mcPress = new Hammer.Manager(press);
+      var pressMe = new Hammer.Press();
+      mcPress.add(pressMe);
+      mcPress.on("press", function(ev) {
+        $("#press-box").css({"backgroundColor":"green"});
+      });
+    
+      var pan = document.getElementById('pan-box');
+      var mcPan = new Hammer(pan);
+      var panMe = new Hammer.Pan();
+      mcPan.add(panMe);
+      mcPan.on('panleft panright', function(ev) {
+        $('#pan-box').css("background", "green");
+      });
+
+      var tap = document.getElementById('tap-box');
+      var mcTap = new Hammer(tap);
+      var tapMe = new Hammer.Tap();
+      mcTap.add(tapMe);
+      mcTap.on('tap', function(ev) {
+        $('#tap-box').css({"backgroundColor":"green"});
+      });
+
+      var swipe = document.getElementById('swipe-box');
+      var mcSwipe = new Hammer(swipe);
+      var swipeMe = new Hammer.Swipe();
+      mcSwipe.add(swipeMe);
+      mcSwipe.on("swipe", function(ev) {
+         $('#swipe-box').css({"backgroundColor":"green"});
+      });
+
   </script>
 </body>
 </html>
